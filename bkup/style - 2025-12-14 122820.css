@@ -1,0 +1,579 @@
+/* =========================================================
+   Phase 03 — Layer 1: Layout + Spacing (mostly neutral)
+   ========================================================= */
+
+/* ---------- Reset / Base ---------- */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.5;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+:root{
+  --container: 1100px;
+  --gutter: 16px;
+
+  --space-1: 6px;
+  --space-2: 10px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 36px;
+  --space-6: 56px;
+
+  --radius: 12px;
+
+  /* Neutral palette for now (colors later) */
+  --bg: #ffffff;
+  --text: #111111;
+  --muted: #555555;
+  --border: #dddddd;
+  --panel: #f6f6f6;
+}
+
+body { background: var(--bg); color: var(--text); }
+
+.container{
+  width: min(var(--container), 100% - (var(--gutter) * 2));
+  margin-inline: auto;
+}
+
+.section{
+  padding-block: var(--space-5);
+}
+
+.muted{ color: var(--muted); }
+.small{ font-size: 0.9rem; }
+
+/* Accessibility: skip link */
+.skip-link{
+  position: absolute;
+  left: -999px;
+  top: 8px;
+  padding: 10px 12px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  z-index: 9999;
+}
+.skip-link:focus{ left: 8px; }
+
+/* ---------- Header / Nav ---------- */
+.site-header{
+  position: sticky; /* fixed feel but nicer with content flow */
+  top: 0;
+  z-index: 1000;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-block: var(--space-3);
+}
+
+.brand{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+.brand-mark{
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-weight: 700;
+}
+.brand-name{
+  font-weight: 700;
+}
+
+.nav-toggle{
+  display: none; /* enabled on mobile */
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #fff;
+  cursor: pointer;
+}
+
+.site-nav{ }
+.nav-list{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: 0;
+  margin: 0;
+}
+
+.nav-link{
+  display: inline-block;
+  padding: 10px 6px;
+  font-weight: 600;
+}
+
+.nav-item{ position: relative; }
+.has-dropdown > .dropdown{
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 240px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 8px;
+  list-style: none;
+  margin: 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+.has-dropdown:hover > .dropdown{
+  display: block;
+}
+.dropdown li a{
+  display: block;
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+.dropdown li a:hover{
+  background: var(--panel);
+  text-decoration: none;
+}
+
+/* ---------- Footer ---------- */
+.site-footer{
+  border-top: 1px solid var(--border);
+  padding-block: var(--space-4);
+}
+.footer-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+.footer-links{
+  display: flex;
+  gap: var(--space-3);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn:hover{
+  text-decoration: none;
+  background: var(--panel);
+}
+.btn-secondary{
+  background: #fff;
+}
+
+/* ---------- Hero + Cards ---------- */
+.hero{
+  padding-block: var(--space-6);
+  border-bottom: 1px solid var(--border);
+}
+.hero h1{
+  margin: 0 0 var(--space-2);
+  line-height: 1.15;
+}
+.hero p{ margin: 0 0 var(--space-4); max-width: 70ch; }
+.hero-actions{
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-5);
+}
+
+.hero-cards{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+
+.card{
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+  background: #fff;
+}
+.card h2{ margin-top: 0; }
+
+/* ---------- Page Header ---------- */
+.page-header{
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: var(--space-4);
+}
+.page-header h1{ margin: 0 0 var(--space-2); }
+
+/* ---------- Two-column layout ---------- */
+.layout-two-col{
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.sidebar{
+  position: sticky;
+  top: 84px; /* header height-ish */
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+  background: #fff;
+}
+.sidebar-title{
+  margin-top: 0;
+  margin-bottom: var(--space-3);
+}
+.sidebar-links{
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-4);
+}
+.sidebar-links li a{
+  display: block;
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+.sidebar-links li a:hover{
+  background: var(--panel);
+  text-decoration: none;
+}
+.sidebar-box{
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.content{ }
+
+/* ---------- Categories + grids ---------- */
+.category{
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--border);
+}
+.category:last-child{ border-bottom: 0; }
+
+.product-grid,
+.post-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.product-card,
+.post-card{
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+  background: #fff;
+}
+.product-card h3,
+.post-card h3{
+  margin-top: 0;
+  margin-bottom: var(--space-2);
+}
+
+.price{
+  display: inline-block;
+  padding: 2px 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+.empty-state{
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+  background: #fff;
+  margin-top: var(--space-3);
+}
+
+/* ---------- Forms ---------- */
+.form{
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+.form-row{
+  display: grid;
+  gap: 8px;
+}
+input, select, textarea{
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+  font: inherit;
+}
+textarea{ resize: vertical; }
+
+/* ---------- Feature list ---------- */
+.feature-list{
+  padding-left: 18px;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 980px){
+  .hero-cards{ grid-template-columns: 1fr; }
+  .product-grid, .post-grid{ grid-template-columns: 1fr; }
+  .layout-two-col{ grid-template-columns: 1fr; }
+  .sidebar{ position: relative; top: 0; }
+}
+
+@media (max-width: 760px){
+  .nav-toggle{ display: inline-block; }
+
+  /* Stack nav as a drawer-like block */
+  .site-nav{
+    display: none;
+    width: 100%;
+    padding-bottom: var(--space-3);
+  }
+  .site-nav.open{ display: block; }
+
+  .header-row{ flex-wrap: wrap; }
+
+  .nav-list{
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    border-top: 1px solid var(--border);
+    padding-top: var(--space-3);
+  }
+
+  /* On mobile: show dropdown content always (simple, no hover reliance) */
+  .has-dropdown > .dropdown{
+    display: block;
+    position: static;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+  }
+  .dropdown li a{
+    padding-left: 18px;
+  }
+}
+
+/* =========================================================
+   Phase 03 — Layer 2: Colors + Typography (Urbanist theme)
+   Paste this at the END of style.css
+   ========================================================= */
+
+:root{
+  /* Brand */
+  --bg: #FFFFFF;
+  --text: #0c0c0c;
+  --accent: #e50000;
+
+  /* Neutrals derived from your palette */
+  --muted: rgba(12,12,12,0.70);
+  --border: rgba(12,12,12,0.14);
+  --panel: rgba(12,12,12,0.04);
+
+  /* Typography */
+  --font: "Urbanist", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* Base typography */
+body{
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg);
+  letter-spacing: 0.1px;
+}
+
+h1, h2, h3{
+  letter-spacing: -0.3px;
+}
+
+h1{
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 800;
+}
+
+h2{
+  font-size: clamp(1.35rem, 1.8vw, 1.9rem);
+  font-weight: 750;
+}
+
+h3{
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+p, li{
+  color: var(--muted);
+}
+
+a{
+  color: var(--text);
+}
+
+a:hover{
+  text-decoration-thickness: 2px;
+}
+
+/* Header styling */
+.site-header{
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.brand-mark{
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.brand-name{
+  color: var(--text);
+}
+
+/* Nav polish */
+.nav-link{
+  color: var(--text);
+}
+
+.dropdown{
+  border: 1px solid var(--border);
+}
+
+.dropdown li a:hover{
+  background: var(--panel);
+}
+
+/* Buttons (brand red) */
+.btn{
+  border: 1px solid var(--border);
+  background: var(--text);
+  color: var(--bg);
+}
+
+.btn:hover{
+  background: #000000;
+}
+
+.btn-secondary{
+  background: var(--bg);
+  color: var(--text);
+}
+
+.btn-secondary:hover{
+  background: var(--panel);
+}
+
+/* Accent moments */
+.hero h1{
+  color: var(--text);
+}
+
+.hero-actions .btn:first-child{
+  background: var(--accent);
+  border-color: rgba(229,0,0,0.35);
+}
+
+.hero-actions .btn:first-child:hover{
+  background: #c90000;
+}
+
+/* Cards + surfaces */
+.card,
+.product-card,
+.post-card,
+.sidebar,
+.empty-state{
+  border: 1px solid var(--border);
+}
+
+.price{
+  border: 1px solid var(--border);
+  color: var(--text);
+  background: rgba(255,255,255,0.7);
+}
+
+/* Form focus styles */
+input:focus, select:focus, textarea:focus, button:focus, a:focus{
+  outline: 3px solid rgba(229,0,0,0.25);
+  outline-offset: 2px;
+  border-color: rgba(229,0,0,0.35);
+}
+
+/* Footer */
+.site-footer{
+  border-top: 1px solid var(--border);
+}
+
+/* =========================================================
+   Navigation Menu Text Styling
+   ========================================================= */
+
+/* Base menu link style */
+.nav-link{
+  font-family: "Urbanist", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+
+  position: relative;
+  padding: 10px 6px;
+  color: inherit;
+}
+
+/* Remove default underline behavior */
+.nav-link:hover{
+  text-decoration: none;
+}
+
+/* Red underline (hidden by default) */
+.nav-link::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+
+  background-color: #e50000;
+
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+/* On hover: show underline */
+.nav-link:hover::after{
+  transform: scaleX(1);
+}

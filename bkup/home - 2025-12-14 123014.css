@@ -1,0 +1,121 @@
+/* =========================================================
+   Home Hero — Page-specific overrides
+   File: css/pages/home.css
+   ========================================================= */
+
+/* Make header sit on top of hero and match dark hero */
+./* Make the entire home page background black so no white shows above hero */
+.home-page{
+  background: #0c0c0c;
+}
+
+/* Header should not be transparent on home */
+.home-page .site-header{
+  background: #0c0c0c;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+That 
+
+/* Ensure nav text is readable on dark hero */
+.home-page .brand-name,
+.home-page .nav-link,
+.home-page .nav-toggle,
+.home-page .brand-mark{
+  color: #FFFFFF;
+}
+
+.home-page .brand-mark{
+  border-color: rgba(255,255,255,0.20);
+}
+
+/* Dropdown on dark hero: keep it clean */
+.home-page .has-dropdown > .dropdown{
+  background: #0c0c0c;
+  border-color: rgba(255,255,255,0.16);
+}
+
+.home-page .dropdown li a{
+  color: #FFFFFF;
+}
+
+.home-page .dropdown li a:hover{
+  background: rgba(255,255,255,0.06);
+  text-decoration: none;
+}
+
+/* HERO: full-height, black background */
+/* HERO: center content + make it dominant */
+.home-page .hero--home{
+  background: #0c0c0c;
+  color: #FFFFFF;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;   /* vertical balance */
+  border-bottom: none;
+}
+
+/* Center everything in the hero container */
+.home-page .hero--home .container{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Bigger headline */
+.home-page .hero--home h1{
+  color: #FFFFFF;
+  max-width: 22ch;
+  font-size: clamp(2.4rem, 4.4vw, 4rem);
+  line-height: 1.05;
+  margin-bottom: 12px;
+}
+
+/* Subtext width + color */
+.home-page .hero--home p{
+  color: rgba(255,255,255,0.78);
+  max-width: 70ch;
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+}
+
+/* Center the buttons */
+.home-page .hero--home .hero-actions{
+  justify-content: center;
+  margin-top: 22px;
+}
+
+/* Buttons: red background + white text */
+.home-page .hero--home .btn{
+  background: #e50000;
+  color: #FFFFFF;
+  border-color: rgba(229,0,0,0.35);
+}
+
+.home-page .hero--home .btn:hover{
+  background: #c90000;
+}
+
+/* Secondary button: also red per your spec */
+.home-page .hero--home .btn.btn-secondary{
+  background: #e50000;
+  color: #FFFFFF;
+  border-color: rgba(229,0,0,0.35);
+}
+
+.home-page .hero--home .btn.btn-secondary:hover{
+  background: #c90000;
+}
+
+/* Optional: tighten hero spacing so it feels premium */
+.home-page .hero--home .hero-actions{
+  margin-top: 18px;
+}
+
+/* On very small screens, reduce height a bit */
+@media (max-width: 760px){
+  .home-page .hero--home{
+    min-height: 88vh;
+    padding-block: 56px;
+  }
+}

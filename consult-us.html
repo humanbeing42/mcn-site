@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Consult Us | Massive Charging Network</title>
+  <meta name="description" content="Clear your EV charging doubts and get free advice. Tell us your EV type and question." />
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="index.html" aria-label="Massive Charging Network Home">
+        <span class="brand-mark">MCN</span>
+        <span class="brand-name">Massive Charging Network</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        Menu
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li class="nav-item has-dropdown">
+            <a class="nav-link" href="get-ev-chargers.html">Get EV Chargers</a>
+            <ul class="dropdown" aria-label="Get EV Chargers submenu">
+              <li><a href="get-ev-chargers.html#sockets">EV Charging Sockets</a></li>
+              <li><a href="get-ev-chargers.html#2w3w">2W &amp; 3W EV Chargers</a></li>
+              <li><a href="get-ev-chargers.html#4w">4W EV Chargers</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item has-dropdown">
+            <a class="nav-link" href="ev-charging-guide.html">EV Charging Guide</a>
+            <ul class="dropdown" aria-label="EV Charging Guide submenu">
+              <li><a href="ev-charging-guide.html#cars">Charging Guide for EV Cars in India</a></li>
+              <li><a href="ev-charging-guide.html#home">Home Charging Setup Guide</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="consult-us.html" aria-current="page">Consult Us</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container section">
+    <header class="page-header">
+      <h1>Consult Us</h1>
+      <p>Clear your doubts &amp; get free advice. Share your details and we’ll get back to you.</p>
+    </header>
+
+    <div class="layout-two-col">
+      <section class="content">
+        <h2>Tell us your question</h2>
+
+        <form class="form" action="#" method="post">
+          <div class="form-row">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" required />
+          </div>
+
+          <div class="form-row">
+            <label for="contact">Phone or Email</label>
+            <input id="contact" name="contact" type="text" placeholder="Phone number or email" required />
+          </div>
+
+          <div class="form-row">
+            <label for="city">City</label>
+            <input id="city" name="city" type="text" placeholder="e.g., Delhi / Bengaluru / Pune" />
+          </div>
+
+          <div class="form-row">
+            <label for="evType">EV Type</label>
+            <select id="evType" name="evType" required>
+              <option value="">Select</option>
+              <option value="2w">2W (Two-wheeler)</option>
+              <option value="3w">3W (Three-wheeler)</option>
+              <option value="4w">4W (Car)</option>
+              <option value="fleet">Fleet / Commercial</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="question">Your question</label>
+            <textarea id="question" name="question" rows="6" placeholder="What do you want to know?" required></textarea>
+          </div>
+
+          <button class="btn" type="submit">Submit</button>
+          <p class="muted small">Phase 04 will wire this form to real submission (email/WhatsApp/API).</p>
+        </form>
+      </section>
+
+      <aside class="sidebar" aria-label="Contact options">
+        <h2 class="sidebar-title">Quick options</h2>
+
+        <div class="sidebar-box">
+          <h3>WhatsApp</h3>
+          <p class="muted">Add your WhatsApp number later.</p>
+          <a class="btn btn-secondary" href="#">Chat on WhatsApp</a>
+        </div>
+
+        <div class="sidebar-box">
+          <h3>Call</h3>
+          <p class="muted">Add your phone number later.</p>
+          <a class="btn btn-secondary" href="#">Request a call</a>
+        </div>
+
+        <div class="sidebar-box">
+          <h3>Email</h3>
+          <p class="muted">Add your support email later.</p>
+          <a class="btn btn-secondary" href="#">Send an email</a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <p>© <span id="year"></span> Massive Charging Network</p>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="get-ev-chargers.html">Get EV Chargers</a></li>
+        <li><a href="ev-charging-guide.html">Charging Guide</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
